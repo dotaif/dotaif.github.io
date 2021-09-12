@@ -44,3 +44,11 @@ h4{
 .smolmargin{
     margin: 5px;
 }
+
+.guestbook_entry p{
+		margin: 5px;
+}
+
+.guestbook_entry h4{
+		margin: 5px;
+}
