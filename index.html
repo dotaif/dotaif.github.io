@@ -4,6 +4,41 @@
   <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>
 </head>
 <body class="oblivion_font">
-  <h1>DOT AIF DOT COM</h1>
-  <p>i made this site for a <a href='ashlander-vpn.html'>rick roll</a></p>
+  <div class="site_title">
+    <img src='images/explosion.gif'>
+    <h1>DOT AIF DOT COM</h1>
+    <img src='images/explosion.gif'>
+  </div>
+  <div class="center">
+  <h4 id='subtitle'>THE BEST SITE ON THE NET - TODD HOWARD</h4>
+  </div>
+  <p>I originally made this site for an ill-fated attempt at a rick roll which was shadowbanned by twitter. now it's just a dumb site.</p>
+  <h2>Stuff</h2>
+  <ul>
+  <li><a href='dagoth.html'>Dagoth Ur's Illustrated Monologue</a><img src='images/new1.gif' class='text_height_img'></li>
+  </ul>
+  <h2>AWEOSME EXTERNAL LINKS (in case you're desperate to leave)</h2>
+  <ul>
+  <li><a href='https://youtube.com/dotaif'>YOUTUBE</a><img src='images/video_cam.gif' class='text_height_img'></li>
+  <li><a href='https://twitter.com/dot_aif'>TWITTER</a><img src='images/bird_mail.gif' class='text_height_img'></li>
+  <li><a href='http://dotaif.com'>THIS SITE (YOU'RE ALREADY HERE)</a><img src='images/arrowa3.gif' class='text_height_img'></li>
+  </ul>
 </body>
+
+<script>
+//please be patient i have NO idea what i'm doing
+subtitles = [
+  'Rated "Best Site on the Net" by Todd Howard 10 years in a row',
+  'where best friends are made',
+  'this started off as a rickroll',
+  'Dot Aif welcomes you',
+  'Refresh this page for a better subtitle',
+  'By Azura By Azura By Azura!',
+  "i don't know you and i don't care to know you",
+  "i don't know how to make a website",
+  "i clearly didn't use SquareSpace",
+]
+subtitle = document.getElementById('subtitle')
+var newSubtitle = subtitles[Math.floor(Math.random() * subtitles.length)];
+subtitle.innerText = newSubtitle
+</script>

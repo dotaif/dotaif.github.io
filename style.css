@@ -5,4 +5,38 @@
 
 .oblivion_font{
   font-family: 'kingthings_petrockregular';
+	font-size: 20pt;
+}
+
+.text_height_img{
+	height: 20pt;
+}
+
+body{
+	background-image: url('images/parchment.jpg');
+	background-repeat: repeat;
+}
+
+.site_title{
+	display: flex;
+	justify-content: center;
+}
+
+.center{
+	text-align: center;
+	justify-content: center;
+}
+
+
+h2{
+    padding: 0px;
+    margin: 0px;
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+}
+h4{
+    padding: 0px;
+    margin: 0px;
 }
