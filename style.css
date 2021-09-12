@@ -52,3 +52,11 @@ h4{
 .guestbook_entry h4{
 		margin: 5px;
 }
+
+.guestbook_response p{
+		margin: 15px;
+}
+
+.guestbook_response h4{
+		left: 30pt;
+}

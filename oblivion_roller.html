@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<head>
+  <title>Oblivion Character Roller</title>
+  <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>
+</head>
+
+<body class="oblivion_font">
+  <h1 class="center">Oblivion Character Roller</h1>
+  <p>Generate a random Oblivion character so you can stop doing Stealth Archer playthroughs.</p>
+  <p>Based off of <a href='images/oblivion roll.png'>this Oblivion character roll image</a>. Now in JavaScript for your convenience! <button onclick="roll()">Roll!</button></p>
+
+  <h3>Your Specialization</h3>
+  <p id='specialization'></p>
+
+  <h3>Your Class</h3>
+  <p id='char_class'></p>
+
+  <h3>Your Birthsign</h3>
+  <p id='birthsign'></p>
+
+  <h3>Your Hometown</h3>
+  <p id='hometown'></p>
+
+  <h3>Your Race</h3>
+  <p id='race'></p>
+
+  <h3>Your Starting Faction</h3>
+  <p id='faction'></p>
+
+  <h3>Your Alignment</h3>
+  <p id='alignment'></p>
+
+  <h3>Who you Worship (choose any)</h3>
+  <p id='worship'></p>
+
+  <p><a href='index.html'>go home</a></p>
+</body>
+
+
+<script>
+  specializations = ['Combat', 'Magic', 'Stealth']
+  combat_classes = [
+    'Archer',
+    'Barbarian',
+    'Crusader',
+    'Knight',
+    'Rogue',
+    'Scout',
+    'Warrior',
+    'Any Combat Class',
+    'Custom Combat Class',
+    'Whatever you want!',
+  ]
+  magic_classes = [
+    'Battlemage',
+    'Healer',
+    'Mage',
+    'Nightblade',
+    'Sorcerer',
+    'Spellsword',
+    'Witchhunter',
+    'Any Magic Class',
+    'Custom Magic Class',
+    'Whatever you want!',
+  ]
+  stealth_classes = [
+    'Acrobat',
+    'Agent',
+    'Assassin',
+    'Bard',
+    'Monk',
+    'Pilgrim',
+    'Thief',
+    'Any Stealth Class',
+    'Custom Stealth Class',
+    'Whatever you want!',
+  ]
+  classes_by_specialization = {
+    'Combat': combat_classes,
+    'Magic': magic_classes,
+    'Stealth': stealth_classes,
+  }
+
+  birthsigns = [
+    'The Shadow or The Steed',
+    'The Tower or The Mage',
+    'The Atronach',
+    'The Serpent or The Lover',
+    'The Lord of the Apprentice',
+    'The Ritual',
+    'The Warrior',
+    'The Lady',
+    'The Thief',
+    'Pick Any',
+  ]
+
+  hometowns = [
+    'The Imperial City',
+    'Anvil',
+    'Cheydinhal',
+    'Leyawiin',
+    'Bruma',
+    'Skingrad',
+    'Chorrol',
+    'Bravil',
+    'Kvatch (lol sorry)',
+    'Anywhere you want!',
+  ]
+
+  races = [
+    'Altmer',
+    'Argonian',
+    'Bosmer',
+    'Breton',
+    'Dunmer',
+    'Imperial',
+    'Khajiit',
+    'Nord',
+    'Orc',
+    'Redguard',
+  ]
+
+  factions = [
+    'The Fighters Guild',
+    'The Mages Guild',
+    'The Thieves Guild',
+    'The Dark Brotherhood',
+    'The Arena',
+    'Knights of the Nine (if you don\'t have KOTN installed, choose any)',
+    'Nine Divines (if you don\'t have KOTN installed, choose any)',
+    'The Blades',
+    'Any other minor faction',
+    'Any or no faction',
+  ]
+
+  temperments = [
+    'Lawful',
+    'Neutral',
+    'Chaotic'
+  ]
+
+  moralities = [
+    'Good',
+    'Neutral',
+    'Evil',
+    'Stupid',
+  ]
+
+  divines = [
+    'Akatosh',
+    'Arkay',
+    'Dibella',
+    'Julianos',
+    'Kynareth',
+    'Mara',
+    'Stendarr',
+    'Zenithar',
+  ]
+
+  daedric_princes = [
+    'Azura',
+    'Boethiah',
+    'Clavicus Vile',
+    'Hermaeus Mora',
+    'Hircine',
+    'Jyggalag',
+    'Malacath',
+    'Mehrunes Dagon',
+    'Mephala',
+    'Meridia',
+    'Molag Bal',
+    'Namira',
+    'Nocturnal',
+    'Periyte',
+    'Sanguine',
+    'Sheogorath',
+    'Vaermina',
+  ]
+
+  specialization_p = document.getElementById('specialization')
+  char_class_p = document.getElementById('char_class')
+  birthsign_p = document.getElementById('birthsign')
+  hometown_p = document.getElementById('hometown')
+  race_p = document.getElementById('race')
+  faction_p = document.getElementById('faction')
+  alignment_p = document.getElementById('alignment')
+  worship_p = document.getElementById('worship')
+
+  array_choices = function(input_array, n){
+    array = Array.from(input_array)
+    var res = []
+    if(n>array.length){
+      alert(array)
+    }
+    for (var i=0;i<n;i++){
+      idx = Math.floor(Math.random() * array.length)
+      res.push(array[idx])
+      array.splice(idx,1)
+    }
+    return res
+  }
+
+  roll = function(){
+    var specialization = specializations[Math.floor(Math.random() * specializations.length)]
+    var spec_classes = classes_by_specialization[specialization]
+    var char_class = spec_classes[Math.floor(Math.random() * spec_classes.length)]
+    var birthsign = birthsigns[Math.floor(Math.random() * birthsigns.length)]
+    var hometown = hometowns[Math.floor(Math.random() * hometowns.length)]
+    var race = races[Math.floor(Math.random() * races.length)]
+    var faction = factions[Math.floor(Math.random() * factions.length)]
+
+    var temperment = temperments[Math.floor(Math.random() * temperments.length)]
+    var morality = moralities[Math.floor(Math.random() * moralities.length)]
+    var alignment = temperment + ' ' + morality
+    if(morality == 'Good'){
+      if(race == 'Dunmer'){
+        // good Dunmer can still worship a prince
+        var worship = array_choices(divines.concat(daedric_princes), 3)
+      }
+      else{
+        var worship = array_choices(divines, 3)
+      }
+      if(race == 'Orc' && !worship.includes('Malacath')){
+        // gppds Orcs can still worship Malacath
+        worship.push('Malacath')
+      }
+    }
+    else if(morality == 'Evil'){
+      var worship = array_choices(daedric_princes, 3)
+    }
+    else{
+      var worship = array_choices(divines.concat(daedric_princes), 3)
+    }
+
+    // MADGOD
+    if (Math.floor(Math.random() * 100) == 0){
+      alignment = 'MADGOD'
+      worship = 'Yourself'
+    }
+
+    specialization_p.innerText = specialization
+    char_class_p.innerText = char_class
+    birthsign_p.innerText = birthsign
+    hometown_p.innerText = hometown
+    race_p.innerText = race
+    faction_p.innerText = faction
+    alignment_p.innerText = alignment
+    worship_p.innerText = worship
+  }
+
+  roll()
+
+</script>
