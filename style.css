@@ -1,0 +1,8 @@
+@font-face{
+	font-family: 'kingthings_petrockregular';
+  src: url('fonts/Kingthings_Petrock-webfont.woff');
+}
+
+.oblivion_font{
+  font-family: 'kingthings_petrockregular';
+}
