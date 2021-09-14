@@ -2,13 +2,17 @@
 <head>
   <title>Oblivion Character Roller</title>
   <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>
+  <link rel="shortcut icon" type="image/jpg" href="images/explosion.gif"/>
 </head>
 
 <body class="oblivion_font">
   <h1 class="center">Oblivion Character Roller</h1>
   <p>Generate a random Oblivion character so you can stop doing Stealth Archer playthroughs.</p>
-  <p>Based off of <a href='images/oblivion roll.png'>this Oblivion character roll image</a>. Now in JavaScript for your convenience! <button onclick="roll()">Roll!</button></p>
-
+  <p>Based off of <a href='images/oblivion roll.png'>this Oblivion character roll image</a>. Now in JavaScript for your convenience!</p>
+  <p>click the dice to roll!</p>
+  <button align='center' onclick="roll()"><img src='images/dice2.gif'></button>
+  <br>
+  <br>
   <h3>Your Specialization</h3>
   <p id='specialization'></p>
 
@@ -127,9 +131,9 @@
     'The Dark Brotherhood',
     'The Arena',
     'Knights of the Nine (if you don\'t have KOTN installed, choose any)',
-    'Nine Divines (if you don\'t have KOTN installed, choose any)',
+    //'Nine Divines (if you don\'t have KOTN installed, choose any)',
     'The Blades',
-    'Any other minor faction',
+    //'Any other minor faction',
     'Any or no faction',
   ]
 
@@ -201,6 +205,7 @@
   }
 
   roll = function(){
+    var worship_num = 5
     var specialization = specializations[Math.floor(Math.random() * specializations.length)]
     var spec_classes = classes_by_specialization[specialization]
     var char_class = spec_classes[Math.floor(Math.random() * spec_classes.length)]
@@ -215,10 +220,10 @@
     if(morality == 'Good'){
       if(race == 'Dunmer'){
         // good Dunmer can still worship a prince
-        var worship = array_choices(divines.concat(daedric_princes), 3)
+        var worship = array_choices(divines.concat(daedric_princes), worship_num)
       }
       else{
-        var worship = array_choices(divines, 3)
+        var worship = array_choices(divines, worship_num)
       }
       if(race == 'Orc' && !worship.includes('Malacath')){
         // gppds Orcs can still worship Malacath
@@ -226,11 +231,12 @@
       }
     }
     else if(morality == 'Evil'){
-      var worship = array_choices(daedric_princes, 3)
+      var worship = array_choices(daedric_princes, worship_num)
     }
     else{
-      var worship = array_choices(divines.concat(daedric_princes), 3)
+      var worship = array_choices(divines.concat(daedric_princes), worship_num)
     }
+    worship = worship.join(', ')
 
     // MADGOD
     if (Math.floor(Math.random() * 100) == 0){
